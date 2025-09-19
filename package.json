@@ -1,0 +1,58 @@
+{
+  "name": "templaterepo",
+  "version": "1.0.0",
+  "description": "A ready-to-use project starter template designed for rapid development and clean architecture. Easily clone, fork, or generate a new repository using this template to kickstart your own projects with best practices in place.",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest",
+    "build-final": "webpack --mode production",
+    "build": "webpack",
+    "dev": "webpack serve",
+    "deploy": "git subtree push --prefix dist origin gh-pages",
+    "clean": "rm -rf dist/",
+    "prepare": "husky",
+    "prettify": "prettier . --write",
+    "prettify-check": "prettier . --check",
+    "add-pre-commits": "husky init",
+    "watch": "jest --watch *.test.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Lesetja-Malapane/templaterepo.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Lesetja-Malapane/templaterepo/issues"
+  },
+  "homepage": "https://github.com/Lesetja-Malapane/templaterepo#readme",
+  "devDependencies": {
+    "@babel/core": "^7.28.4",
+    "@babel/preset-env": "^7.28.3",
+    "@eslint/css": "^0.10.0",
+    "@eslint/js": "^9.33.0",
+    "@eslint/json": "^0.13.1",
+    "@eslint/markdown": "^7.1.0",
+    "babel-jest": "^30.1.2",
+    "css-loader": "^7.1.2",
+    "eslint": "^9.33.0",
+    "globals": "^16.3.0",
+    "html-loader": "^5.1.0",
+    "html-webpack-plugin": "^5.6.3",
+    "husky": "^9.1.7",
+    "jest": "^30.1.3",
+    "lint-staged": "^16.1.5",
+    "prettier": "3.6.2",
+    "style-loader": "^4.0.0",
+    "webpack": "^5.100.2",
+    "webpack-cli": "^6.0.1",
+    "webpack-dev-server": "^5.2.2"
+  },
+  "dependencies": {
+    "date-fns": "^4.1.0"
+  },
+  "lint-staged": {
+    "**/*": "prettier --write --ignore-unknown"
+  }
+}
