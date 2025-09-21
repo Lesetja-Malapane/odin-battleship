@@ -41,6 +41,8 @@ export default function game() {
         )
       ) {
         cell.classList.add("hit");
+      } else {
+        cell.classList.add("miss");
       }
     });
   });
