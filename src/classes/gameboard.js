@@ -42,4 +42,14 @@ export default class Gameboard {
   shipsOnBoard() {
     return this.ships;
   }
+
+  allShipsCoordinates() {
+    let coords = [];
+    this.ships.forEach((shipObj) => {
+      shipObj.coordinates.forEach((coord) => {
+        coords.push(coord);
+      });
+    });
+    return coords;
+  }
 }
