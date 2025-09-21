@@ -8,7 +8,6 @@ function renderPlayerGameboard() {
       div.className = "cell";
       div.dataset.y = i;
       div.dataset.x = j;
-      div.id = "negative";
       playerBoard.appendChild(div);
     }
   }
@@ -21,7 +20,6 @@ function renderOpponentGameboard() {
       div.className = "cell";
       div.dataset.y = i;
       div.dataset.x = j;
-      div.id = "negative";
       opponentBoard.appendChild(div);
     }
   }

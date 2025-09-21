@@ -1,4 +1,5 @@
-const cells = Array.from(document.querySelectorAll(".cell"));
+const playerBoard = document.getElementById("playerBoard");
+const cells = Array.from(playerBoard.querySelectorAll(".cell"));
 
 export default function renderPlayerShips(player) {
   const ships = Array.from(player.gameboard.ships);
@@ -12,7 +13,7 @@ export default function renderPlayerShips(player) {
           el.dataset.x === coord[0].toString() &&
           el.dataset.y === coord[1].toString(),
       );
-      cell.id = "positive";
+      cell.classList.add("ship");
     });
   });
 }
