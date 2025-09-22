@@ -40,15 +40,16 @@
   background-color: rgb(0, 0, 0, 0.5);
 }
 
-.cell.hit,
-.cell.ship.hit {
-  background-color: red;
-}
-
 #opponentBoard > *:hover {
   background-color: rgba(0, 38, 251, 0.7);
 }
 
-.cell.miss {
-  background-color: black;
+.cell.hit,
+.cell.ship.hit {
+  background-color: green;
+}
+
+.cell.miss,
+.cell.ship.miss {
+  background-color: red;
 }
