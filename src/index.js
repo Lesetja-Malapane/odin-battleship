@@ -1,2 +1,4 @@
 import "./style.css";
-import "./DOM/game-controller";
+import game from "./DOM/game-controller";
+
+game();

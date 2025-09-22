@@ -11,6 +11,9 @@ const opponentCells = opponentBoard.querySelectorAll(".cell");
 const playerBoard = document.getElementById("playerBoard");
 const playerCells = playerBoard.querySelectorAll(".cell");
 
+const playerData = player1.gameboard;
+const opponentData = player2.gameboard;
+
 function addShipToPlayerBoard(player, coordinates, direction, shipLength) {
   player.gameboard.placeShip(coordinates, shipLength, direction);
 }
@@ -24,9 +27,6 @@ addShipToPlayerBoard(player2, { x: 4, y: 3 }, "vertical", 3);
 addShipToPlayerBoard(player2, { x: 7, y: 7 }, "horizontal", 2);
 
 renderPlayerShips(player1);
-
-const playerData = player1.gameboard;
-const opponentData = player2.gameboard;
 
 export default function game() {
   // player's turn
@@ -44,11 +44,16 @@ export default function game() {
         )
       ) {
         cell.classList.add("hit");
+        opponentData.receiveAttack({ x: cellCoord[0], y: cellCoord[1] });
+        if (player2.gameboard.ships.length === 0) {
+          console.log("You win!");
+        }
+        return;
       } else {
         cell.classList.add("miss");
         let turn = computerTurn();
         while (turn) {
-          computerPlays();
+          computerTurn();
           turn = computerTurn();
         }
       }
@@ -79,6 +84,10 @@ function computerTurn() {
       )
     ) {
       targetDiv.classList.add("hit");
+      playerData.receiveAttack({ x: computerChoice[0], y: computerChoice[1] });
+      if (player2.gameboard.ships.length === 0) {
+        console.log("You win!");
+      }
       return true;
     } else {
       if (targetDiv) targetDiv.classList.add("miss");
@@ -86,5 +95,3 @@ function computerTurn() {
     }
   }, 2000);
 }
-
-game();

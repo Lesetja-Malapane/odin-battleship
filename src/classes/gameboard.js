@@ -10,6 +10,17 @@ export default class Gameboard {
       for (let i = 0; i < coords.length; i++) {
         if (coords[i][0] === coordinates.x && coords[i][1] === coordinates.y) {
           ship.hit();
+          if (ship.isSunk()) {
+            console.log("Yes");
+            this.ships = this.ships.filter(
+              (hitShip) =>
+                !hitShip.coordinates.some(
+                  (coord) =>
+                    coord[0] === coordinates.x && coord[1] === coordinates.y,
+                ),
+            );
+            console.log(this.ships);
+          }
           return true;
         }
       }
