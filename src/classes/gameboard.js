@@ -36,6 +36,12 @@ export default class Gameboard {
 
     if (direction.toLowerCase() === "horizontal") {
       for (let i = 0; i < shipLength; i++) {
+        if (
+          this.allShipsCoordinates().some(
+            (coord) => coord[0] === x && coord[1] === y,
+          )
+        )
+          return;
         shipCoordinates.push([x, y]);
         x += 1;
       }
